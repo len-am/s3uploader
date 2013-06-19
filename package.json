@@ -1,0 +1,36 @@
+{
+  "name": "s3uploader",
+  "version": "0.1.0",
+  "description": "Upload files to s3 with exponential backoff",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tgolen/s3uploader.git"
+  },
+  "keywords": [
+    "s3",
+    "uploads",
+    "retries",
+    "backoff"
+  ],
+  "author": {
+    "name": "Tim Golen",
+    "email": "tim@golen.net",
+    "url": "http://golen.net/blog"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "mime": "~1.2.9",
+    "knox": "~0.6.0",
+    "waitress": "~0.1.5"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  },
+  "readmeFilename": "README.md",
+  "_id": "s3uploader@0.1.0",
+  "_from": "s3uploader@",
+}
