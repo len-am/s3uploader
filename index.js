@@ -145,14 +145,14 @@ Retry.prototype.uploadWithRetries = function(data, headers, destination, timesRe
 
   timesRetried++
 
-  function endWithError(err) {
+  function endWithError(err, res) {
     if (callbackCalled) {
       return
     }
     if (timesRetried >= self.maxRetries) {
       if (!callbackCalled) {
         callbackCalled = true
-        return cb(err, null, timesRetried)
+        return cb(err, res, timesRetried)
       }
     }
     else {
@@ -168,7 +168,8 @@ Retry.prototype.uploadWithRetries = function(data, headers, destination, timesRe
 
   function endWithResponse(res) {
     if (res.statusCode !== 200) {
-      return endWithError(new Error('Invalid status code: ' + res.statusCode))
+      // Return the response so the call back can examine it
+      return endWithError(new Error('Invalid status code: ' + res.statusCode), res)
     }
 
     if (!callbackCalled) {
